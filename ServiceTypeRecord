@@ -1,0 +1,32 @@
+Option Explicit
+
+Private Const NUM_SERVICE_LINES = 35
+
+Public ServiceTypeRevenue As Single
+Private m_ServiceLines() As New ServiceLineRecord
+
+Public Property Get ServiceTypes(index As Single)
+    ServiceTypes = m_ServiceTypes(index)
+End Property
+
+Public Property Set ServiceTypes(index As Single, ServiceTypeSet As ServiceTypeRecord)
+    m_ServiceTypes(index) = ServiceTypeSet
+End Property
+
+Private Sub Class_Initialize()
+    ServiceTypeRevenue = 0
+    
+    ReDim m_ServiceTypes(NUM_SERVICE_LINES)
+    Dim type_index As Single
+    For type_index = 0 To NUM_SERVICE_LINES
+        m_Providers(type_index) = 0
+    Next
+End Sub
+
+
+
+'Public Type ServiceTypeRecord
+'    ServiceTypeRevenue As Single
+'    ServiceLines(35) As ServiceLineRecord
+'End Type
+
